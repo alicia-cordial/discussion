@@ -1,0 +1,41 @@
+.section1
+{
+    background-image: url(images/taro.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+.section2
+{
+    background-image: url(images/sky.jpg);
+    background-size: 100%;
+}
+
+
+
+
+.section3
+{
+    background-image: url(images/escalier.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+h5
+{
+    color: white;
+    text-align: center;
+    font-size: 2em;
+    text-shadow: 2px 2px 2px black;
+}
+
+.section1 p
+{
+    color: white;
+    font-size: 1.4em;
+    text-shadow: 1px 1px 1px black;
+    text-align: justify;
+    margin: 10px;
+
+}
