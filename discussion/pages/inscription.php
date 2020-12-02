@@ -5,8 +5,8 @@ $bdd = new PDO('mysql:host=localhost;dbname=discussion', 'root', '');
  
 if(isset($_POST['forminscription'])) {
     $login = htmlspecialchars($_POST['login']);
-    $password = $_POST['password'];
-    $password2 = $_POST['password2'];  
+    $password = sha1($_POST['password']);
+    $password2 = sha1($_POST['password2']);  
    if(!empty($_POST['login']) AND !empty($_POST['password']) AND !empty($_POST['password2'])) {    
        if($loginlengh<=255){
         $requetelogin= $bdd->prepare("SELECT login FROM utilisateurs WHERE login =?;");
@@ -35,7 +35,7 @@ if(isset($_POST['forminscription'])) {
 ?>
 
 
-  <html lang="en">
+  <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,9 +71,15 @@ if(isset($_POST['forminscription'])) {
   </div>
 
   <ul class="sidenav" id="mobile-links">
-    <li><a href="../index.php">Home</a></li>
-    <li><a href="">About</a></li>
-    <li><a href="">Contact</a></li>
+  <li><a href="../index.php">Home
+    <i class="material-icons">home </i>
+    </a></li>
+    <li><a href="">About
+    <i class="material-icons">brightness_6 </i>
+    </a></li>
+    <li><a href="">Contact
+    <i class="material-icons">mail_outline </i>
+    </a></li>
     <li><a href="inscription.php" class="btn white indigo-text">Inscription</a></li>
     <li><a href="connexion.php" class="btn white indigo-text">Login</a></li>
   </ul>
@@ -87,23 +93,27 @@ if(isset($_POST['forminscription'])) {
       
 
 <div class="row">
-    <form class="col s12" action="inscription.php" method="post">
-      <div class="row">
+  <form class="col s12" action="inscription.php" method="post">
+    <div class="row">
         <div class="input-field col s12">
-          <input placeholder="login" id="login" type="text" name="login" class="validate" value="<?php if(isset($login)) { echo $login; } ?>"/>
+          <input placeholder="login" id="login" type="text" name="login" class="validate white-text" value="<?php if(isset($login)) { echo $login; } ?>"/>
           <label for="login">Login</label>
         </div>
-      </div>
-      <div class="row">
+    </div>
+
+    <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate" name="password" />
+          <input id="password" type="password" class="validate white-text" name="password" />
           <label for="password">Password</label>
         </div>
-      </div>
+    </div>
+
+    <div class="row">
       <div class="input-field col s12">
-          <input id="password2" type="password" class="validate" name="password2" />
+          <input id="password2" type="password" class="validate white-text" name="password2" />
           <label for="password2">Confirmation Password</label>
-        </div>
+      </div>
+    </div>
 
      
   <button class="btn waves-effect waves-light black" type="submit" name="forminscription">Submit
@@ -117,18 +127,7 @@ if (isset($erreur))
 }
 ?>
     </form>
-  </div>
-
-
-
-</section>
-
-
-
-
-
-
-
+</div>
 
 
 </main>

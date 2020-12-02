@@ -8,7 +8,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=discussion', 'root', '');
 if(isset($_POST['formconnexion'])) 
 {
    $loginconnect = htmlspecialchars($_POST['loginconnect']);
-   $passwordconnect = $_POST['passwordconnect'];
+   $passwordconnect = sha1($_POST['passwordconnect']);
    if(!empty($loginconnect) AND !empty($passwordconnect)) 
    {
       $requser = $bdd->prepare("SELECT * FROM utilisateurs WHERE login = ? AND password = ?");
@@ -31,7 +31,7 @@ if(isset($_POST['formconnexion']))
 ?>
 
  
- <html lang="en">
+ <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,17 +67,23 @@ if(isset($_POST['formconnexion']))
   </div>
 
   <ul class="sidenav" id="mobile-links">
-    <li><a href="../index.php">Home</a></li>
-    <li><a href="">About</a></li>
-    <li><a href="">Contact</a></li>
+    <li><a href="../index.php">Home
+    <i class="material-icons">home </i>
+    </a></li>
+    <li><a href="">About
+    <i class="material-icons">brightness_6 </i>
+    </a></li>
+    <li><a href="">Contact
+    <i class="material-icons">mail_outline </i>
+    </a></li>
     <li><a href="inscription.php" class="btn white indigo-text">Inscription</a></li>
     <li><a href="connexion.php" class="btn white indigo-text">Login</a></li>
   </ul>
   
-<main>
+
 
 <h1>Bienvenue sur ce site magique</h1>
-   
+<main class="valign-wrapper">
    <!--Formulaire-->      
 
 
@@ -85,22 +91,21 @@ if(isset($_POST['formconnexion']))
     <form class="col s12" action="connexion.php" method="post">
       <div class="row">
         <div class="input-field col s12">
-          <input placeholder="login" id="login" type="text" name="login" class="validate" value="<?php if(isset($login)) { echo $login; } ?>"/>
+          <input placeholder="login" id="loginconnect" type="text" name="loginconnect" class="validate white-text"/>
           <label for="login">Login</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate" name="password" />
+          <input id="passwordconnect" type="password" class="validate white-text" name="passwordconnect" />
           <label for="password">Password</label>
         </div>
       </div>
  
      
-  <button class="btn waves-effect waves-light black" type="submit" name="forminscription">Submit
+  <button class="btn waves-effect waves-light black " type="submit" name="formconnexion">Submit
     <i class="material-icons right">send</i>
   </button>
-        
         <?php
 if (isset($erreur))
 {
@@ -110,21 +115,8 @@ if (isset($erreur))
     </form>
   </div>
 
-
- 
-
-
-
-
-
-
-
-
 </main>
 
-
-
-  </footer>
             
     <!-- Compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>

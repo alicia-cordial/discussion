@@ -7,7 +7,12 @@ if(isset($_SESSION['id'])) {
     $userinfo = $requser->fetch();   
  }
  ?>
-  <html lang="en">
+
+
+
+
+
+  <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,21 +48,29 @@ if(isset($_SESSION['id'])) {
   </div>
 
   <ul class="sidenav" id="mobile-links">
-    <li><a href="../index.php">Home</a></li>
-    <li><a href="">About</a></li>
-    <li><a href="">Contact</a></li>
+    <li><a href="../index.php">Home
+    <i class="material-icons">home </i>
+    </a></li>
+    <li><a href="">About
+    <i class="material-icons">brightness_6 </i>
+    </a></li>
+    <li><a href="">Contact
+    <i class="material-icons">mail_outline </i>
+    </a></li>
     <li><a href="inscription.php" class="btn white indigo-text">Inscription</a></li>
     <li><a href="connexion.php" class="btn white indigo-text">Login</a></li>
   </ul>
   
+
+<h1>Profil de <?php echo $userinfo['login']; ?></h1>
+
+
 <main>
+  <section class="valign-wrapper">
 
-<h1>Les petits commentaires des sorciers et sorcières</h1>
-
-<h2>Profil de <?php echo $userinfo['login']; ?></h2>
 <?php
 
-$requser = $bdd->prepare("SELECT date AS 'posté', login AS 'utilisateur', commentaire FROM `commentaires` INNER JOIN `utilisateurs` ON commentaires.id_utilisateurs = utilisateurs.id ORDER BY date DESC;");
+$requser = $bdd->prepare("SELECT date AS 'posté', login AS 'utilisateur', message FROM `messages` INNER JOIN `utilisateurs` ON messages.id_utilisateur = utilisateurs.id ORDER BY date DESC;");
 $requser->execute();
 
 $i=0;
@@ -101,25 +114,19 @@ echo $erreur;
 }
 ?>
 
-</form>                                                                                              
-</section>
+</form> 
 
-<section class="commentaire">
-<a href="commentaire.php" class="button" name="submit" type="submit">
-<span>Laissez votre petit commentaire</span>
-</a>   
-</section>
-
+  </section>
 <?php
 if(isset($_POST['forminscription'])) {
-        $commentaire = $_POST['commentaire'];
+        $commentaire = htmlspecialchars($_POST['commentaire']);
         if(!empty($commentaire))
         {
         date_default_timezone_get('Europe/Paris');
         $date =date("Y-m-d");
-        $requetecom = $bdd->prepare("INSERT INTO  commentaires(commentaire, id_utilisateurs, date) VALUES(?, ?, ?)");
+        $requetecom = $bdd->prepare("INSERT INTO  messages(message, id_utilisateur, date) VALUES(?, ?, ?)");
         $requetecom->execute(array($commentaire, $_SESSION['id'], $date));
-        header("location:livre-or.php?id=".$_SESSION['id']);
+        header("location:discussion.php?id=".$_SESSION['id']);
         }
         else
         {
@@ -134,21 +141,23 @@ if(isset($_POST['forminscription'])) {
 
 ?>
 
-
-<section class="commentaire">
-  <form action="commentaire.php" method="post">
-    <fieldset>
-      <legend>Laisse un petit commentaire</legend>
-      
-        <article class="user-box">
-          <label for="commentaire">Commentaire :</label>
-          <textarea name="commentaire" rows=10 cols=80 placeholder="Votre petit commentaire magique!" ></textarea>
-        </article>  
-
-        <article class="user-box">
-            <input type="submit" name="forminscription" value="Poster mon commentaire" />
-        </article>
-</fieldset>
+  <form action="discussion.php" method="post">
+  
+  <div class="row">
+    <form class="col s12" action="discussion.php" method="post">
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="commentaire" class="materialize-textarea white-text" name="commentaire"></textarea>
+          <label for="commentaire">Message</label>
+        </div>
+      </div>
+    
+      <button class="btn waves-effect waves-light black" type="submit" name="forminscription">Submit
+    <i class="material-icons right">send</i>
+  </button>
+       
+  </form>
+</div>
 
 
 <?php
@@ -160,9 +169,6 @@ if (isset($erreur))
 
 
 </form>                                                                                              
-</section>
-
-
 
 </main>
 

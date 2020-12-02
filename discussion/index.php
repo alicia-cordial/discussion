@@ -24,9 +24,10 @@
           <i class="material-icons">menu</i>
         </a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="">Home</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Contact</a></li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="../discussion/pages/connexion.php">Discuter</a></li>
           <li><a href="../discussion/pages/inscription.php" class="btn white indigo-text">Inscription</a></li>
           <li><a href="../discussion/pages/connexion.php" class="btn white indigo-text">Login</a></li>
         </ul>
@@ -35,9 +36,18 @@
   </div>
 
   <ul class="sidenav" id="mobile-links">
-    <li><a href="">Home</a></li>
-    <li><a href="">About</a></li>
-    <li><a href="">Contact</a></li>
+    <li><a href="#">Home
+    <i class="material-icons">home </i>
+    </a></li>
+    <li><a href="#">About
+    <i class="material-icons">brightness_6 </i>
+    </a></li>
+    <li><a href="#">Contact
+    <i class="material-icons">mail_outline </i>
+    </a></li>
+    <li><a href="../discussion/pages/connexion.php">Discuter
+    <i class="material-icons">insert_comment </i>
+    </a></li>
     <li><a href="../discussion/pages/inscription.php" class="btn white indigo-text">Inscription</a></li>
     <li><a href="../discussion/pages/connexion.php" class="btn white indigo-text">Login</a></li>
   </ul>
@@ -61,7 +71,7 @@
       <h5>Featured Products</h5>
       <div class="container">
         <div class="row">
-          <div class="col s6 l3">
+          <div class="col s10 l3">
             <div class="card">
               <div class="card-image">
                 <img src="images/witchesbible.jpeg" alt="bible">
@@ -71,16 +81,14 @@
               </div>
               <div class="card-content">
                 <span class="card-title center">A witches'Bible</span>
-                <p> by Janet and Stewart Farrar</p>
-                <p>Covering all the traditional and necessary parts of Witchcraft, the Witches’ Bible by Farrar and Farrar contains two books in one volume: Eight Sabbats for Witches and The Witches’ Way</p>
-                <p>It discusses the Sabbats, Casting and Banishing the Magic Circle, Book of Shadows, Spells, running a coven, and more.</p>
+                <p>Covering all the traditional and necessary parts of Witchcraft : Eight Sabbats for Witches and The Witches’ Way. It discusses the Sabbats, Casting and Banishing the Magic Circle, Book of Shadows, Spells, running a coven, and more.</p>
               </div>
               <div class="card-action">
                 <a href="">More details</a>
               </div>
             </div>
           </div>
-          <div class="col s6 l3">
+          <div class="col s10 l3">
             <div class="card">
               <div class="card-image">
                 <img src="images/book.png" alt="book">
@@ -89,16 +97,17 @@
                 </a>
               </div>
               <div class="card-content">
-                <span class="card-title center">Buckland’s Complete Book of Witchcraft (Over 500,000 Sold!)</span>
-                <p> Iby Raymond Buckland</p>
-                <p>Buckland’s Complete Book of Witchcraft has influenced and guided countless students, coven initiates, and solitaries around the world. One of modern Wicca’s most recommended books, this comprehensive text features a step-by-step course in Witchcraft, with photographs and illustrations, rituals, beliefs, history, and lore, as well as instruction in spellwork, divination, herbalism, healing, channeling, dreamwork, sabbats, esbats, covens, and solitary practice. The workbook format includes exam questions at the end of each lesson, so you can build a permanent record of your spiritual and magical training. This complete self-study course in modern Wicca is a treasured classic?an essential and trusted guide that belongs in every Witch’s library.</p>
+                <span class="card-title center">Buckland’s Complete Book of Witchcraft</span>
+                <p>(OVER 5000 SOLD)</p>
+                <p>One of the most recommended books, this comprehensive text features a step-by-step course in Witchcraft, rituals, beliefs, ect.</p> 
+                <p>A trusted guide that belongs in every Witch’s library.</p>
               </div>
                 <div class="card-action">
                   <a href="">More details</a>
               </div>
             </div>
           </div>
-          <div class="col s6 l3">
+          <div class="col s10 l3">
             <div class="card">
               <div class="card-image">
                 <img src="images/roots.jpg" alt="roots">
@@ -107,7 +116,7 @@
                 </a>
               </div>
               <div class="card-content">
-                <span class="card-title center">DEVIL’S SHOESTRING ROOT for Protection, Breaking Curses / Bad Luck, & Binding Enemies (RARE)</span>
+                <span class="card-title center">DEVIL’S SHOESTRING ROOT for Protection, Breaking Curses / Bad Luck, & Binding Enemies</span>
                 <p>Devil’s Shoestring is one of the most powerful, and difficult to acquire, roots used in New Orleans Witchcraft and Louisiana Voodoo/Hoodoo practices.</p>
               </div>
                 <div class="card-action">
@@ -116,7 +125,7 @@
                 </div>
             </div>
           </div>
-          <div class="col s6 l3">
+          <div class="col s10 l3">
             <div class="card">
               <div class="card-image">
                 <img src="images/fire.jpeg" alt="fire">
@@ -190,23 +199,26 @@
     </main>      
 
 
-    
-    <footer class="page-footer black">
+
+    <footer class="page-footer black center">
       <div class="container">
-        <div class="row">
           <div class="col l12 s6">
             <h5 class="white-text">Links</h5>
               <ul>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                <li><a href="facebook.com">
+                  <img src="../discussion/images/facebook.png" alt="facebook"/>
+                </a></li>
+                <li><a href="instagram.com">
+                <img src="../discussion/images/instagram.png" alt="instagram"/>
+                </a></li>
+                <li><a href="twitter.com">
+                <img src="../discussion/images/twitter.png" alt="twitter"/>
+                </a></li>
               </ul>
           </div>
-        </div>
       </div>
           
-    <div class="footer-copyright">
+    <div class="footer-copyright center">
       <div class="container">
         © 2020 Witch Copyright
       </div>
